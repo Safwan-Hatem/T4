@@ -21,15 +21,23 @@ void solve() {
     fr.close();
     vector<per> v(n);
     ifstream fr2("persons.txt");
-    ll mn=1e18,mx=0;
+    per mn,mx;
+    mn.age=1e18;
+    mx.age=0;
     for (int i=0;i<n;i++) {
         fr2>>v[i].name>>v[i].age;
-        mn=min(v[i].age,mn);
-        mx=max(v[i].age,mx);
+        if (v[i].age<mn.age) {
+            mn.age=v[i].age;
+            mn.name=v[i].name;
+        }
+        if (v[i].age>mx.age) {
+            mx.age=v[i].age;
+            mx.name=v[i].name;
+        }
     }
     fr2.close();
     ofstream re("results.txt");
-    re<<"Youngest : "<<mn<<endl<<"Oldest : "<<mx<<endl;
+    re<<"Youngest : "<<mn.name<<endl<<"Oldest : "<<mx.name<<endl;
     re.close();
 
 }
