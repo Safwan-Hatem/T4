@@ -27,7 +27,10 @@ void solve() {
         mn=min(v[i].age,mn);
         mx=max(v[i].age,mx);
     }
-    cout<<mn<<' '<<mx<<endl;
+    fr2.close();
+    ofstream re("results.txt");
+    re<<"Youngest : "<<mn<<endl<<"Oldest : "<<mx<<endl;
+    re.close();
 
 }
 signed main() {
